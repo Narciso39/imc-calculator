@@ -1,35 +1,21 @@
-public class App {
-    public static void main(String[] args) throws Exception {
+package com.example.imc;
 
-    Celular celularA = new Celular();
+import javax.servlet.ServletContextEvent;
+import javax.servlet.ServletContextListener;
+import javax.servlet.annotation.WebListener;
 
-    celularA.nome = "Iphone 12";
-    celularA.tamanhoTela =  6.1f;
-    celularA.armazenamento = 256;
-    celularA.sistemaOperacional = "Ios";
+@WebListener
+public class App implements ServletContextListener {
 
-    Celular celularB = new Celular(); 
+    @Override
+    public void contextInitialized(ServletContextEvent sce) {
+        // Código que será executado na inicialização da aplicação
+        System.out.println("Aplicação IMC iniciada.");
+    }
 
-    celularB.nome = "S23 Ultra";
-    celularB.tamanhoTela =  6.8f;
-    celularB.armazenamento = 256;
-    celularB.sistemaOperacional = "android";
-    
-    Celular celularC;
-
-    celularC = new Celular();
-
-    
-    celularC.nome = "Xiaomi";
-    celularC.tamanhoTela =  5.8f;
-    celularC.armazenamento = 1;
-    celularC.sistemaOperacional = "android";
-
-    System.out.format("Celular %s com tela de %.1f, com %dgb e SO %s\n",  celularA.nome, celularA.tamanhoTela,  celularA.armazenamento,celularA.sistemaOperacional );
-
-    System.out.format("Celular %s com tela de %.1f, com %dgb e SO %s\n", celularB.nome, celularB.tamanhoTela, celularB.armazenamento, celularB.sistemaOperacional);
-    
-    System.out.format("Celular %s com tela de %.1f, com %dtb e SO %s", celularC.nome, celularC.tamanhoTela, celularC.armazenamento, celularC.sistemaOperacional);
-}
-    
+    @Override
+    public void contextDestroyed(ServletContextEvent sce) {
+        // Código que será executado na destruição da aplicação
+        System.out.println("Aplicação IMC encerrada.");
+    }
 }
